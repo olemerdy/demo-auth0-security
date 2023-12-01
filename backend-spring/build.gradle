@@ -7,7 +7,7 @@ plugins {
 group = 'org.lafeuille.demo'
 
 java {
-    sourceCompatibility = '17'
+    sourceCompatibility = '21'
 }
 
 configurations {
