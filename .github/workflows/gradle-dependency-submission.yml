@@ -22,6 +22,8 @@ jobs:
           java-version: '21'
           cache: 'gradle'
       - uses: gradle/actions/dependency-submission@v3
+        with:
+          build-root-directory: backend-spring
 
   dependency-review:
     runs-on: ubuntu-latest
