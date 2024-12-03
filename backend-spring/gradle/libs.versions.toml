@@ -1,0 +1,11 @@
+[versions]
+commons-compress = "[1.26+,)"
+spring-boot = "3.4.0"
+spring-dependency-management = "1.1.6"
+
+[libraries]
+commons-compress = { module = "org.apache.commons:commons-compress", version.ref = "commons-compress" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
