@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Component } from '@angular/core';
 import { GoogleMap } from '@angular/google-maps';
 import { RouterOutlet } from '@angular/router';
 import { YouTubePlayer } from '@angular/youtube-player';
