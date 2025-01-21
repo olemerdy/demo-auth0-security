@@ -1,6 +1,12 @@
 version: 2
 updates:
-  - package-ecosystem: "gradle" # See documentation for possible values
-    directory: "/backend-spring/" # Location of package manifests
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "gradle"
+    directory: "/backend-spring/"
+    schedule:
+      interval: "weekly"
+    allow:
+      - dependency-type: "direct"
