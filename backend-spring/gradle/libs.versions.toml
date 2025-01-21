@@ -1,9 +1,13 @@
 [versions]
+ben-manes-versions = "0.51.0"
+spotless = "7.0.2"
 spring-boot = "3.4.1"
 spring-dependency-management = "1.1.7"
 
 [libraries]
 
 [plugins]
+ben-manes-versions = { id = "com.github.ben-manes.versions", version.ref = "ben-manes-versions" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
