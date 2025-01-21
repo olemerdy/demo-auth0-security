@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { YouTubePlayer } from '@angular/youtube-player';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-root',
@@ -14,4 +15,6 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class AppComponent {
   title = 'frontend-angular';
+
+  constructor(public auth: AuthService) {}
 }
