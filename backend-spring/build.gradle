@@ -2,6 +2,8 @@ plugins {
     id 'java'
     alias(libs.plugins.spring.boot)
     alias(libs.plugins.spring.dependency.management)
+    alias(libs.plugins.ben.manes.versions)
+    alias(libs.plugins.spotless)
 }
 
 group = 'org.lafeuille.demo'
@@ -45,6 +47,12 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+    }
 }
 
 test {
