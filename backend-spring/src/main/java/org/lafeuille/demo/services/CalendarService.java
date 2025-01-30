@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalendarService {
 
-  private final EventRepository eventRepository;
+	private final EventRepository eventRepository;
 
-  public CalendarService(EventRepository eventRepository) {
-    this.eventRepository = eventRepository;
-  }
+	public CalendarService(EventRepository eventRepository) {
+		this.eventRepository = eventRepository;
+	}
 
-  public Page<Event> getCalendarEvents(UUID calendarId, Pageable pageable) {
-    return eventRepository.findAllByCalendarId(calendarId, pageable);
-  }
+	public Page<Event> getCalendarEvents(UUID calendarId, Pageable pageable) {
+		return eventRepository.findAllByCalendarId(calendarId, pageable);
+	}
 }

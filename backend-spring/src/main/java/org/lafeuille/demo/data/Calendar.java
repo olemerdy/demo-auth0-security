@@ -9,6 +9,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class Calendar extends AbstractPersistable<UUID> {
 
-  @OneToMany(mappedBy = "calendar")
-  private Collection<Event> events;
+	@OneToMany(mappedBy = "calendar")
+	private Collection<Event> events;
 }

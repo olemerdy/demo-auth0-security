@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/v1/calendar")
 public class CalendarController {
 
-  private final CalendarService calendarService;
+	private final CalendarService calendarService;
 
-  public CalendarController(CalendarService calendarService) {
-    this.calendarService = calendarService;
-  }
+	public CalendarController(CalendarService calendarService) {
+		this.calendarService = calendarService;
+	}
 
-  @GetMapping("{id}/events")
-  Page<Event> readCalendarEvents(@PathVariable UUID id, Pageable pageable) {
-    return calendarService.getCalendarEvents(id, pageable);
-  }
+	@GetMapping("{id}/events")
+	Page<Event> readCalendarEvents(@PathVariable UUID id, Pageable pageable) {
+		return calendarService.getCalendarEvents(id, pageable);
+	}
 }
