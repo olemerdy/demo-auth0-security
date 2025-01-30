@@ -6,5 +6,5 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EventRepository extends JpaRepository<Event, UUID> {
-  Page<Event> findAllByCalendarId(UUID calendarId, Pageable pageable);
+	Page<Event> findAllByCalendarId(UUID calendarId, Pageable pageable);
 }

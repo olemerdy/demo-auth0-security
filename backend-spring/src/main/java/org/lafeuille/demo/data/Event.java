@@ -8,5 +8,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Entity
 public class Event extends AbstractPersistable<UUID> {
 
-  @ManyToOne private Calendar calendar;
+	@ManyToOne
+	private Calendar calendar;
 }
