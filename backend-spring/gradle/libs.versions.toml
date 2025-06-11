@@ -1,9 +1,15 @@
 [versions]
+errorprone = "4.2.0"
+errorprone-core = "2.38.0"
 spring-boot = "3.5.0"
 spring-dependency-management = "1.1.7"
+uber-nullaway = "0.12.7"
 
 [libraries]
+errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone-core" }
+uber-nullaway = { module = "com.uber.nullaway:nullaway", version.ref = "uber-nullaway" }
 
 [plugins]
+errorprone = { id = "net.ltgt.errorprone", version.ref = "errorprone" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
