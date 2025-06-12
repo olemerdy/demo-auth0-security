@@ -8,10 +8,10 @@ import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-root',
   imports: [GoogleMap, MatButtonModule, MatCardModule, RouterOutlet, YouTubePlayer],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class App {
   title = 'frontend-angular';
 }
