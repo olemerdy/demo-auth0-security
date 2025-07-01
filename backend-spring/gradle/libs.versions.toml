@@ -1,5 +1,5 @@
 [versions]
-errorprone = "4.2.0"
+errorprone = "4.3.0"
 errorprone-core = "2.38.0"
 spring-boot = "3.5.3"
 spring-dependency-management = "1.1.7"
