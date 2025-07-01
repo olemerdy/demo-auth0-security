@@ -1,6 +1,6 @@
 [versions]
 errorprone = "4.2.0"
-errorprone-core = "2.38.0"
+errorprone-core = "2.39.0"
 spring-boot = "3.5.3"
 spring-dependency-management = "1.1.7"
 uber-nullaway = "0.12.7"
