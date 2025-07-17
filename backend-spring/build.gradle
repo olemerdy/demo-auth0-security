@@ -36,6 +36,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.flywaydb:flyway-core'
     implementation 'org.jspecify:jspecify'
+    implementation libs.bundles.jollyday
 
     compileOnly 'org.projectlombok:lombok'
 

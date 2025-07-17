@@ -1,15 +1,21 @@
 [versions]
 errorprone = "4.3.0"
-errorprone-core = "2.39.0"
+errorprone-core = "2.40.0"
+jollyday = "1.5.5"
 spring-boot = "3.5.3"
 spring-dependency-management = "1.1.7"
 uber-nullaway = "0.12.7"
 
 [libraries]
 errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone-core" }
+jollyday-core = { module = "de.focus-shift:jollyday-core", version.ref = "jollyday" }
+jollyday-jackson = { module = "de.focus-shift:jollyday-jackson", version.ref = "jollyday" }
 uber-nullaway = { module = "com.uber.nullaway:nullaway", version.ref = "uber-nullaway" }
 
 [plugins]
 errorprone = { id = "net.ltgt.errorprone", version.ref = "errorprone" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+
+[bundles]
+jollyday = ["jollyday-core", "jollyday-jackson"]
