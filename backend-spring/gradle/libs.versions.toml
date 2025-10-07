@@ -1,7 +1,7 @@
 [versions]
 errorprone = "4.3.0"
 errorprone-core = "2.42.0"
-jollyday = "1.5.7"
+jollyday = "1.7.0"
 spring-boot = "3.5.6"
 spring-dependency-management = "1.1.7"
 uber-nullaway = "0.12.10"
