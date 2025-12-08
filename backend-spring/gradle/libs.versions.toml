@@ -4,7 +4,7 @@ errorprone-core = "2.45.0"
 jollyday = "1.8.0"
 spring-boot = "3.5.8"
 spring-dependency-management = "1.1.7"
-uber-nullaway = "0.12.13"
+uber-nullaway = "0.12.14"
 
 [libraries]
 errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone-core" }
