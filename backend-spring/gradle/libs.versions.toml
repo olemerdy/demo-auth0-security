@@ -1,5 +1,5 @@
 [versions]
-errorprone = "4.4.0"
+errorprone = "5.0.0"
 errorprone-core = "2.46.0"
 jollyday = "1.8.1"
 spring-boot = "3.5.8"
