@@ -2,6 +2,15 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
 
+## Angular modules
+
+```bash
+ng add @angular/material
+ng add @angular/pwa
+ng add @angular/youtube-player
+ng add @ngrx/signals
+```
+
 ## Development server
 
 To start a local development server, run:
