@@ -4,8 +4,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 
-import {authHttpInterceptorFn, provideAuth0} from "@auth0/auth0-angular"
-import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import { authHttpInterceptorFn, provideAuth0 } from "@auth0/auth0-angular"
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -23,7 +23,7 @@ export const appConfig: ApplicationConfig = {
         audience: 'https://your-api-identifier'
       },
       httpInterceptor: {
-        allowedList: ['/api/*']
+        allowedList: [ '/api/*' ]
       }
     }),
     provideHttpClient(withInterceptors([authHttpInterceptorFn]))
