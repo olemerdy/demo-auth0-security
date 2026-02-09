@@ -1,3 +1,9 @@
+@if (isAuthenticated()) {
+  <div>
+    <img [src]="user()?.picture" alt="User Image">
+    <h2>{{ user()?.name }}</h2>
+  </div>
+}
 <mat-card>
   <mat-card-header>
     <div mat-card-avatar>

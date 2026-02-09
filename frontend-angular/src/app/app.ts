@@ -1,8 +1,10 @@
-import { Component, signal } from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { YouTubePlayer } from '@angular/youtube-player';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import {AuthService} from '@auth0/auth0-angular';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 
 @Component({
@@ -13,4 +15,8 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class App {
   protected readonly title = signal('frontend-angular');
+  private auth = inject(AuthService)
+  user = toSignal(this.auth.user$)
+  isAuthenticated = toSignal(this.auth.isAuthenticated$, {initialValue: false})
+  isLoading = toSignal(this.auth.isLoading$, {initialValue: true})
 }
