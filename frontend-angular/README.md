@@ -9,6 +9,7 @@ ng add @angular/material
 ng add @angular/pwa
 ng add @angular/youtube-player
 ng add @ngrx/signals
+ng add @auth0/auth0-angular
 ```
 
 ## Development server
