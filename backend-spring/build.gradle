@@ -19,10 +19,6 @@ configurations {
     }
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     errorprone libs.errorprone.core
     errorprone libs.uber.nullaway
