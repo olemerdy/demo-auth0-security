@@ -21,7 +21,7 @@ export const appConfig: ApplicationConfig = {
       clientId: environment.auth0.clientId,
       authorizationParams: {
         redirect_uri: window.location.origin,
-        audience: 'https://demo-auth0-security.lafeuille.org'
+        audience: environment.auth0.audience
       },
       httpInterceptor: {
         allowedList: [ '/api/*' ]
