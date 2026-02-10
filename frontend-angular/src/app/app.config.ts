@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 import { authHttpInterceptorFn, provideAuth0 } from "@auth0/auth0-angular"
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
@@ -16,11 +17,11 @@ export const appConfig: ApplicationConfig = {
             registrationStrategy: 'registerWhenStable:30000'
           }),
     provideAuth0({
-      domain: 'your-domain.auth0.com',
-      clientId: 'your-client-id',
+      domain: environment.auth0.domain,
+      clientId: environment.auth0.clientId,
       authorizationParams: {
         redirect_uri: window.location.origin,
-        audience: 'https://your-api-identifier'
+        audience: 'https://demo-auth0-security.lafeuille.org'
       },
       httpInterceptor: {
         allowedList: [ '/api/*' ]
