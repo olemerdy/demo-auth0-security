@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/v1/calendar")
+@RequestMapping("api/calendar")
 public class CalendarController {
 
     private final CalendarService calendarService;
