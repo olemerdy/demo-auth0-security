@@ -1,14 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { YouTubePlayer } from '@angular/youtube-player';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { AuthService } from '@auth0/auth0-angular';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ExampleCard } from './example/example-card/example-card'
+import { NavigationComponent } from './navigation/navigation.component'
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatButtonModule, MatCardModule, RouterOutlet, YouTubePlayer],
+  imports: [RouterOutlet, NavigationComponent, ExampleCard],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
