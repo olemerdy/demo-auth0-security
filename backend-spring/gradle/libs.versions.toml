@@ -4,12 +4,14 @@ errorprone-core = "2.47.0"
 jollyday = "1.8.2"
 spring-boot = "4.0.2"
 spring-dependency-management = "1.1.7"
+threeten-extra = "1.8.0"
 uber-nullaway = "0.13.1"
 
 [libraries]
 errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone-core" }
 jollyday-core = { module = "de.focus-shift:jollyday-core", version.ref = "jollyday" }
 jollyday-jackson = { module = "de.focus-shift:jollyday-jackson", version.ref = "jollyday" }
+threeten-extra = { module = "org.threeten:threeten-extra", version.ref = "threeten-extra" }
 uber-nullaway = { module = "com.uber.nullaway:nullaway", version.ref = "uber-nullaway" }
 
 [plugins]
