@@ -1,20 +1,30 @@
-package org.lafeuille.demo.playground;
+package org.lafeuille.demo.services;
 
 import de.focus_shift.jollyday.core.HolidayCalendar;
-import de.focus_shift.jollyday.core.HolidayManager;
-import de.focus_shift.jollyday.core.ManagerParameters;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.time.DayOfWeek;
 import java.time.Year;
+import java.util.Locale;
+import java.util.Optional;
 import java.util.stream.Stream;
 
-import static de.focus_shift.jollyday.core.HolidayCalendar.*;
+import static de.focus_shift.jollyday.core.HolidayCalendar.FRANCE;
+import static de.focus_shift.jollyday.core.HolidayCalendar.SWEDEN;
+import static de.focus_shift.jollyday.core.HolidayCalendar.UNITED_KINGDOM;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class JollydayPlaygroundTest {
+class PublicHolidaysServiceTest {
+
+    private PublicHolidaysService service;
+
+    @BeforeEach
+    void setUp() {
+        service = new PublicHolidaysService();
+    }
 
     static Stream<Arguments> factory() {
         return Stream.of(
@@ -52,9 +62,8 @@ public class JollydayPlaygroundTest {
     }
 
     long numberOfHolidaysNotOnWeekendPerYear(HolidayCalendar calendar, int isoYear) {
-        var holidayManager = HolidayManager.getInstance(ManagerParameters.create(calendar));
-        var year = Year.of(isoYear);
-        var holidays = holidayManager.getHolidays(year);
+        var holidays = service.getYearHolidays(Year.of(isoYear), Locale.getDefault(), Optional.of(calendar.getId()));
         return holidays.stream().filter(h -> h.getDate().getDayOfWeek().getValue() < DayOfWeek.SATURDAY.getValue()).count();
     }
+
 }
