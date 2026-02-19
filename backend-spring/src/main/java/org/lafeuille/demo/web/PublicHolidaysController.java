@@ -22,13 +22,13 @@ public class PublicHolidaysController {
 
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public List<Holiday> getHolidays(@RequestParam LocalDate start, @RequestParam LocalDate end,
-      Locale locale, @RequestParam Optional<String> country) {
-    return publicHolidaysService.getHolidays(LocalDateRange.of(start, end), locale, country);
+      Locale locale, @RequestParam Optional<String> calendar) {
+    return publicHolidaysService.getHolidays(LocalDateRange.of(start, end), locale, calendar);
   }
 
   @GetMapping(path = "{isoYear}", produces = MediaType.APPLICATION_JSON_VALUE)
   public List<Holiday> getYearHolidays(@PathVariable Year isoYear, Locale locale,
-      @RequestParam Optional<String> country) {
-    return publicHolidaysService.getYearHolidays(isoYear, locale, country);
+      @RequestParam Optional<String> calendar) {
+    return publicHolidaysService.getYearHolidays(isoYear, locale, calendar);
   }
 }
