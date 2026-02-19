@@ -16,24 +16,24 @@ import org.threeten.extra.LocalDateRange;
 @Service
 public class PublicHolidaysService {
 
-  public List<Holiday> getHolidays(LocalDateRange dateRange, Locale locale, Optional<String> country) {
-    return getManager(locale, country)
+  public List<Holiday> getHolidays(LocalDateRange dateRange, Locale locale, Optional<String> calendar) {
+    return getManager(locale, calendar)
         .getHolidays(dateRange.getStart(), dateRange.getEnd())
         .stream()
         .sorted(Comparator.comparing(Holiday::getDate))
         .collect(toList());
   }
 
-  public List<Holiday> getYearHolidays(Year isoYear, Locale locale, Optional<String> country) {
-    return getManager(locale, country)
+  public List<Holiday> getYearHolidays(Year isoYear, Locale locale, Optional<String> calendar) {
+    return getManager(locale, calendar)
         .getHolidays(isoYear)
         .stream()
         .sorted(Comparator.comparing(Holiday::getDate))
         .collect(toList());
   }
 
-  private HolidayManager getManager(Locale locale, Optional<String> country) {
-    var managerParameter = country.map(ManagerParameters::create)
+  private HolidayManager getManager(Locale locale, Optional<String> calendar) {
+    var managerParameter = calendar.map(ManagerParameters::create)
         .orElseGet(() -> ManagerParameters.create(locale));
     return HolidayManager.getInstance(managerParameter);
   }
