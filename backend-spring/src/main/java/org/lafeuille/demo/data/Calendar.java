@@ -6,7 +6,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.UUID;
 
 @Entity

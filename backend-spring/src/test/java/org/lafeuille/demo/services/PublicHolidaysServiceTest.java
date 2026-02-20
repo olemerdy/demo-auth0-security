@@ -12,9 +12,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static de.focus_shift.jollyday.core.HolidayCalendar.FRANCE;
-import static de.focus_shift.jollyday.core.HolidayCalendar.SWEDEN;
-import static de.focus_shift.jollyday.core.HolidayCalendar.UNITED_KINGDOM;
+import static de.focus_shift.jollyday.core.HolidayCalendar.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class PublicHolidaysServiceTest {
