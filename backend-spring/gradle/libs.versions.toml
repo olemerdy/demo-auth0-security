@@ -2,7 +2,7 @@
 errorprone = "5.0.0"
 errorprone-core = "2.47.0"
 jollyday = "2.0.0"
-spring-boot = "4.0.2"
+spring-boot = "4.0.3"
 spring-dependency-management = "1.1.7"
 threeten-extra = "1.8.0"
 uber-nullaway = "0.13.1"
