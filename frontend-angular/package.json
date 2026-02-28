@@ -43,7 +43,7 @@
     "@angular/compiler-cli": "^21.2.0",
     "@angular/localize": "^21.2.0",
     "@angular/youtube-player": "^21.2.0",
-    "@auth0/auth0-angular": "^2.6.0",
+    "@auth0/auth0-angular": "^2.7.0",
     "@ngrx/signals": "^21.0.1",
     "@tailwindcss/postcss": "^4.1.12",
     "angular-eslint": "21.2.0",
