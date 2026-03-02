@@ -2,7 +2,7 @@ package org.lafeuille.demo.services
 
 import de.focus_shift.jollyday.core.Holiday
 import de.focus_shift.jollyday.core.HolidayCalendar
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -14,7 +14,7 @@ import java.util.Optional
 import java.util.stream.Stream
 
 class PublicHolidaysServiceTest {
-    private var service: PublicHolidaysService? = null
+    lateinit var service: PublicHolidaysService
 
     @BeforeEach
     fun setUp() {
@@ -29,7 +29,7 @@ class PublicHolidaysServiceTest {
         expectedDayCount: Int,
     ) {
         val actualWeekDayCount = numberOfHolidaysNotOnWeekendPerYear(calendar, isoYear)
-        Assertions.assertThat(actualWeekDayCount).isEqualTo(expectedDayCount.toLong())
+        assertThat(actualWeekDayCount).isEqualTo(expectedDayCount.toLong())
     }
 
     fun numberOfHolidaysNotOnWeekendPerYear(
@@ -37,7 +37,7 @@ class PublicHolidaysServiceTest {
         isoYear: Int,
     ): Long {
         val holidays: List<Holiday> =
-            service?.getYearHolidays(Year.of(isoYear), Locale.getDefault(), Optional.of(calendar.id)) ?: emptyList()
+            service.getYearHolidays(Year.of(isoYear), Locale.getDefault(), Optional.of(calendar.id))
         return holidays
             .stream()
             .filter { h: Holiday -> h.date.getDayOfWeek().value < DayOfWeek.SATURDAY.value }
