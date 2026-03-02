@@ -5,7 +5,8 @@ import de.focus_shift.jollyday.core.HolidayType
 import org.junit.jupiter.api.Test
 import org.lafeuille.demo.security.SecurityConfiguration
 import org.lafeuille.demo.services.PublicHolidaysService
-import org.mockito.ArgumentMatchers
+import org.mockito.ArgumentMatchers.any
+import org.mockito.ArgumentMatchers.eq
 import org.mockito.kotlin.whenever
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
 import org.springframework.context.annotation.Import
@@ -14,9 +15,10 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.MvcResult
 import org.springframework.test.web.servlet.ResultMatcher
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers.print
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import java.time.LocalDate
 import java.time.Month
 import java.time.Year
@@ -35,48 +37,48 @@ class PublicHolidaysControllerTest(
     @Throws(Exception::class)
     fun get_api_public_holidays_with_a_year_is_OK() {
         whenever {
-            publicHolidaysService!!.getYearHolidays(
-                ArgumentMatchers.eq(Year.of(2025)),
-                ArgumentMatchers.any(),
-                ArgumentMatchers.eq(
+            publicHolidaysService?.getYearHolidays(
+                eq(Year.of(2025)),
+                any(),
+                eq(
                     Optional.empty<String>(),
                 ),
             )
         }.thenReturn(mockedHolidays)
 
         mockMvc
-            .perform(MockMvcRequestBuilders.get("/api/public/holidays/{year}", 2025))
-            .andExpect(MockMvcResultMatchers.status().isOk())
+            .perform(get("/api/public/holidays/{year}", 2025))
+            .andExpect(status().isOk())
             .andExpect(checkMockedHolidays())
-            .andDo(MockMvcResultHandlers.print())
+            .andDo(print())
     }
 
     @Test
     @Throws(Exception::class)
     fun get_api_public_holidays_with_a_year_and_calendar_is_OK() {
         whenever {
-            publicHolidaysService!!.getYearHolidays(
-                ArgumentMatchers.eq(Year.of(2025)),
-                ArgumentMatchers.any(),
-                ArgumentMatchers.eq(
+            publicHolidaysService?.getYearHolidays(
+                eq(Year.of(2025)),
+                any(),
+                eq(
                     Optional.of<String>("fr"),
                 ),
             )
         }.thenReturn(mockedHolidays)
 
         mockMvc
-            .perform(MockMvcRequestBuilders.get("/api/public/holidays/{year}", 2025).queryParam("calendar", "fr"))
-            .andExpect(MockMvcResultMatchers.status().isOk())
+            .perform(get("/api/public/holidays/{year}", 2025).queryParam("calendar", "fr"))
+            .andExpect(status().isOk())
             .andExpect(checkMockedHolidays())
-            .andDo(MockMvcResultHandlers.print())
+            .andDo(print())
     }
 
     @Test
     @Throws(Exception::class)
     fun get_api_public_holidays_with_not_a_year_is_BAD_REQUEST() {
         mockMvc
-            .perform(MockMvcRequestBuilders.get("/api/public/holidays/{year}", "foobar"))
-            .andExpect(MockMvcResultMatchers.status().isBadRequest())
+            .perform(get("/api/public/holidays/{year}", "foobar"))
+            .andExpect(status().isBadRequest())
     }
 
     companion object {
@@ -96,15 +98,15 @@ class PublicHolidaysControllerTest(
                 )
 
         private fun checkMockedHolidays(): ResultMatcher =
-            ResultMatcher { result: MvcResult? ->
-                MockMvcResultMatchers.jsonPath("$[0].date").value("2025-01-01").match(result)
-                MockMvcResultMatchers.jsonPath("$[0].actualDate").value("2025-01-01").match(result)
-                MockMvcResultMatchers.jsonPath("$[0].observedDate").isEmpty().match(result)
-                MockMvcResultMatchers.jsonPath("$[0].type").value(HolidayType.PUBLIC_HOLIDAY.name).match(result)
-                MockMvcResultMatchers.jsonPath("$[1].date").value("2025-05-01").match(result)
-                MockMvcResultMatchers.jsonPath("$[1].actualDate").value("2025-05-01").match(result)
-                MockMvcResultMatchers.jsonPath("$[1].observedDate").isEmpty().match(result)
-                MockMvcResultMatchers.jsonPath("$[1].type").value(HolidayType.PUBLIC_HOLIDAY.name).match(result)
+            ResultMatcher { result: MvcResult ->
+                jsonPath("$[0].date").value("2025-01-01").match(result)
+                jsonPath("$[0].actualDate").value("2025-01-01").match(result)
+                jsonPath("$[0].observedDate").isEmpty().match(result)
+                jsonPath("$[0].type").value(HolidayType.PUBLIC_HOLIDAY.name).match(result)
+                jsonPath("$[1].date").value("2025-05-01").match(result)
+                jsonPath("$[1].actualDate").value("2025-05-01").match(result)
+                jsonPath("$[1].observedDate").isEmpty().match(result)
+                jsonPath("$[1].type").value(HolidayType.PUBLIC_HOLIDAY.name).match(result)
             }
     }
 }
