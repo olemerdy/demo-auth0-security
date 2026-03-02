@@ -5,9 +5,10 @@ import de.focus_shift.jollyday.core.HolidayType
 import org.junit.jupiter.api.Test
 import org.lafeuille.demo.security.SecurityConfiguration
 import org.lafeuille.demo.services.PublicHolidaysService
-import org.mockito.ArgumentMatchers.any
-import org.mockito.ArgumentMatchers.eq
+import org.mockito.kotlin.any
+import org.mockito.kotlin.eq
 import org.mockito.kotlin.whenever
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
 import org.springframework.context.annotation.Import
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
@@ -28,23 +29,23 @@ import java.util.Optional
 @Import(SecurityConfiguration::class)
 @EnableWebSecurity
 class PublicHolidaysControllerTest(
-    private val mockMvc: MockMvc,
+    @param:Autowired val mockMvc: MockMvc,
 ) {
     @MockitoBean
-    private val publicHolidaysService: PublicHolidaysService? = null
+    lateinit var publicHolidaysService: PublicHolidaysService
 
     @Test
     @Throws(Exception::class)
     fun get_api_public_holidays_with_a_year_is_OK() {
-        whenever {
-            publicHolidaysService?.getYearHolidays(
+        whenever(
+            publicHolidaysService.getYearHolidays(
                 eq(Year.of(2025)),
                 any(),
                 eq(
                     Optional.empty<String>(),
                 ),
             )
-        }.thenReturn(mockedHolidays)
+        ).thenReturn(mockedHolidays)
 
         mockMvc
             .perform(get("/api/public/holidays/{year}", 2025))
@@ -56,15 +57,15 @@ class PublicHolidaysControllerTest(
     @Test
     @Throws(Exception::class)
     fun get_api_public_holidays_with_a_year_and_calendar_is_OK() {
-        whenever {
-            publicHolidaysService?.getYearHolidays(
+        whenever(
+            publicHolidaysService.getYearHolidays(
                 eq(Year.of(2025)),
                 any(),
                 eq(
                     Optional.of<String>("fr"),
                 ),
             )
-        }.thenReturn(mockedHolidays)
+        ).thenReturn(mockedHolidays)
 
         mockMvc
             .perform(get("/api/public/holidays/{year}", 2025).queryParam("calendar", "fr"))
