@@ -1,13 +1,11 @@
-package org.lafeuille.demo;
+package org.lafeuille.demo
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.runApplication
+import org.springframework.boot.test.context.TestConfiguration
 
 @TestConfiguration(proxyBeanMethods = false)
-public class TestApplication {
+class TestApplication
 
-    public static void main(String[] args) {
-        SpringApplication.from(Application::main).with(TestApplication.class).run(args);
-    }
-
+fun main(args: Array<String>) {
+    runApplication<TestApplication>(*args)
 }
