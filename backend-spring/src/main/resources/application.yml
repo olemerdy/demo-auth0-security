@@ -1,13 +1,12 @@
-# With okta-spring-boot-starter
+---
 okta:
   oauth2:
-    issuer: https://lafeuille-dev-eu.eu.auth0.com/
-    audience: https://demo-auth0-security.lafeuille.org
-# Or with spring-boot-starter-oauth2-resource-server
+    issuer: "https://lafeuille-dev-eu.eu.auth0.com/"
+    audience: "https://demo-auth0-security.lafeuille.org"
 spring:
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://lafeuille-dev-eu.eu.auth0.com/
-          audiences: https://demo-auth0-security.lafeuille.org
+          issuer-uri: "https://lafeuille-dev-eu.eu.auth0.com/"
+          audiences: "https://demo-auth0-security.lafeuille.org"
