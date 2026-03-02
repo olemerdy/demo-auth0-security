@@ -44,7 +44,7 @@ class PublicHolidaysControllerTest(
                 eq(
                     Optional.empty<String>(),
                 ),
-            )
+            ),
         ).thenReturn(mockedHolidays)
 
         mockMvc
@@ -64,7 +64,7 @@ class PublicHolidaysControllerTest(
                 eq(
                     Optional.of<String>("fr"),
                 ),
-            )
+            ),
         ).thenReturn(mockedHolidays)
 
         mockMvc
