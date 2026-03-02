@@ -1,0 +1,35 @@
+name: Gradle Publish Boot Jar
+
+on:
+  workflow_call:
+    inputs:
+      artifact-version:
+        required: true
+        type: string
+      java-distribution:
+        type: string
+        default: 'temurin'
+      java-version:
+        type: string
+        default: '25'
+
+jobs:
+  publish-boot-jar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
+        with:
+          distribution: ${{ inputs.java-distribution }}
+          java-version: ${{ inputs.java-version }}
+      - uses: gradle/actions/setup-gradle@v5
+      - name: Publish to Github Packages
+        run: ./gradlew -Pversion=${{ inputs.artifact-version }} publish
+        working-directory: backend-spring
+        env:
+          USERNAME: ${{ github.actor }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
