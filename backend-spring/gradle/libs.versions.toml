@@ -1,21 +1,19 @@
 [versions]
-errorprone = "5.0.0"
-errorprone-core = "2.47.0"
 jollyday = "2.0.0"
+mockito-kotlin = "6.2.3"
+spotless = "8.2.1"
 spring-boot = "4.0.3"
 spring-dependency-management = "1.1.7"
 threeten-extra = "1.8.0"
-uber-nullaway = "0.13.1"
 
 [libraries]
-errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone-core" }
 jollyday-core = { module = "de.focus-shift:jollyday-core", version.ref = "jollyday" }
 jollyday-jackson = { module = "de.focus-shift:jollyday-jackson", version.ref = "jollyday" }
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito-kotlin" }
 threeten-extra = { module = "org.threeten:threeten-extra", version.ref = "threeten-extra" }
-uber-nullaway = { module = "com.uber.nullaway:nullaway", version.ref = "uber-nullaway" }
 
 [plugins]
-errorprone = { id = "net.ltgt.errorprone", version.ref = "errorprone" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
 

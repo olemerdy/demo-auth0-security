@@ -8,4 +8,4 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'backend-spring'
+rootProject.name = "demo-auth0-security"
