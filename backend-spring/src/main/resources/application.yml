@@ -1,10 +1,11 @@
+---
 okta:
   oauth2:
     issuer: "https://lafeuille-dev-eu.eu.auth0.com/"
     audience: "https://demo-auth0-security.lafeuille.org"
 spring:
   application:
-    name: demo-auth0-security
+    name: "demo-auth0-security"
   security:
     oauth2:
       resourceserver:
