@@ -1,6 +1,6 @@
 # FrontendAngular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.3.
 
 ## Angular modules
 
@@ -8,7 +8,6 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 ng add @angular/material
 ng add @angular/pwa
 ng add @angular/youtube-player
-ng add @ngrx/signals
 ng add @auth0/auth0-angular
 ```
 
