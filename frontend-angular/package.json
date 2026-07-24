@@ -21,7 +21,7 @@
     "@angular/router": "^22.0.8",
     "@angular/service-worker": "^22.0.8",
     "@angular/youtube-player": "^22.0.6",
-    "@auth0/auth0-angular": "^2.9.0",
+    "@auth0/auth0-angular": "^2.11.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
