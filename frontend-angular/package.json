@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "update": "ng update @angular/core @angular/cli @angular/material @angular/youtube-player @auth0/auth0-angular"
   },
   "private": true,
   "packageManager": "npm@11.13.0",
