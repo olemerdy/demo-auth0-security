@@ -22,7 +22,7 @@ import { MatCardModule } from '@angular/material/card';
   ]
 })
 export class ExampleDashboardComponent {
-  private breakpointObserver = inject(BreakpointObserver);
+  private readonly breakpointObserver = inject(BreakpointObserver);
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(

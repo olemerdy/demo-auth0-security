@@ -13,7 +13,7 @@ import { NavigationComponent } from './navigation/navigation.component'
 })
 export class App {
   protected readonly title = signal('frontend-angular');
-  private auth = inject(AuthService)
+  private readonly auth = inject(AuthService)
   protected readonly user = toSignal(this.auth.user$)
   protected readonly isAuthenticated = toSignal(this.auth.isAuthenticated$, {initialValue: false})
   protected readonly isLoading = toSignal(this.auth.isLoading$, {initialValue: true})

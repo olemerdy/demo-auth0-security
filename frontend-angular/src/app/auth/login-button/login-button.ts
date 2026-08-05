@@ -8,7 +8,7 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrl: './login-button.css',
 })
 export class LoginButton {
-  private auth = inject(AuthService);
+  private readonly auth = inject(AuthService);
 
   loginWithRedirect(): void {
     this.auth.loginWithRedirect();

@@ -8,7 +8,7 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrl: './logout-button.css',
 })
 export class LogoutButton {
-  private auth = inject(AuthService);
+  private readonly auth = inject(AuthService);
 
   logout(): void {
     this.auth.logout({
