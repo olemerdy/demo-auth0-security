@@ -1,7 +1,7 @@
 <app-navigation>
   @if (isAuthenticated()) {
     <div>
-      <img [src]="user()?.picture" alt="User Image">
+      <img [src]="user()?.picture" [alt]="user()?.name">
       <h2>{{ user()?.name }}</h2>
     </div>
   }
