@@ -1,10 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
+import { provideMockAuthService } from './testing/auth-service.mock';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
+      providers: [
+        provideMockAuthService,
+      ]
     }).compileComponents();
   });
 
