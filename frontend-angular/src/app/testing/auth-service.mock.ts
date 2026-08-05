@@ -5,6 +5,7 @@ import { vi } from 'vitest';
 
 export const mockAuthService = {
   isAuthenticated$: of(true),
+  isLoading$: of(false),
   user$: of({ name: 'Test User', email: 'test@example.com' }),
   loginWithRedirect: vi.fn().mockResolvedValue(undefined),
   logout: vi.fn().mockResolvedValue(undefined),
