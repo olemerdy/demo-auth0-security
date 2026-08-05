@@ -7,7 +7,7 @@ describe('App', () => {
     await TestBed.configureTestingModule({
       imports: [App],
       providers: [
-        provideMockAuthService,
+        provideMockAuthService(),
       ]
     }).compileComponents();
   });
